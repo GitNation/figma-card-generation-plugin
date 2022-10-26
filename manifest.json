@@ -1,0 +1,10 @@
+{
+  "name": "FigPop",
+  "id": "1166707377352468434",
+  "api": "1.0.0",
+  "main": "./dist/index.js",
+  "editorType": [
+    "figma"
+  ],
+  "ui": "./public/ui.html"
+}

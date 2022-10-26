@@ -1,0 +1,15 @@
+{
+  "name": "FigPop",
+  "version": "1.0.0",
+  "description": "Your Figma Plugin",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "watch": "npm run build -- --watch"
+  },
+  "author": "",
+  "license": "",
+  "devDependencies": {
+    "@figma/plugin-typings": "^1.54.1",
+    "typescript": "^4.8.4"
+  }
+}

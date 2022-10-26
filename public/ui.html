@@ -1,0 +1,49 @@
+<!-- <h2>Rectangle Creator</h2>
+<p>Count: <input id="count" value="5"></p>
+<button id="create">Create</button> -->
+<!-- <button id="cancel">Cancel</button> -->
+
+<style>
+    .container {
+        width: 100%;
+        height: 100%;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+<div class="container">
+    <button id="load">Load JSON</button>
+    <input
+        id="fileLoader"
+        type="file"
+        style="display:none;"
+        accept="application/json"
+    />
+</div>
+
+
+<script>
+    document.getElementById('fileLoader').oninput = (e) => {
+        const [file] = e.target.files;
+        if (file) {
+            const fileReader = new FileReader();
+
+            fileReader.onload = () => {
+                try {
+                    const data = JSON.parse(fileReader.result);
+                    parent.postMessage({ pluginMessage: { type: 'load-json', data } }, '*')
+                } catch (error) {
+                    console.error('Failed to load json file', error);
+                }
+            }
+            fileReader.readAsText(file);
+        }
+    }
+
+    document.getElementById('load').onclick = () => {
+        document.getElementById('fileLoader').click();
+    }
+</script>
